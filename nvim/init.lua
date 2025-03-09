@@ -15,9 +15,13 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
+local plugins = {}
+local opts = {}
+
 require("lazy").setup({
   spec = {
     { import = "plugins" },
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000, opts = {} },
     -- require("plugins.colorscheme"),
     -- require 'plugins.neotree',
   },
@@ -45,7 +49,7 @@ require("lazy").setup({
   },
 })
 vim.o.background = "dark" -- or "light" for light mode
-vim.cmd([[colorscheme gruvbox]])
+vim.cmd([[colorscheme catppuccin]])
 
 -- Function to check if a file exists
 -- local function file_exists(file)
