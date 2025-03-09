@@ -1,6 +1,7 @@
 -- https://github.com/hendrikmi/dotfiles/blob/main/nvim
 require("core.options")
 require("core.keymaps")
+require("core.autocommands")
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
