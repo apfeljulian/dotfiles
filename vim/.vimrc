@@ -18,7 +18,7 @@ set timeoutlen=300 " Time to wait for a mapped sequence to complete (in millisec
 set nobackup " Don't create a backup file
 set nowritebackup " Don't write backup before overwriting
 set completeopt=menuone,noselect " Better completion experience
-set whichwrap+=<,>,[,],h,l " Allow certain keys to move to the next line
+"set whichwrap+=<,>,[,],h,l " Allow certain keys to move to the next line
 set nowrap " Display long lines as one line
 set linebreak " Don't break words when wrapping
 set scrolloff=10 " Keep 8 lines above/below cursor
