@@ -17,7 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	spec = {
 		{ import = "plugins" },
-		require("plugins.colorscheme"),
+		-- require("plugins.colorscheme"),
 		-- require 'plugins.neotree',
 		-- require 'plugins.bufferline',
 		-- require 'plugins.lualine',
@@ -63,6 +63,8 @@ require("lazy").setup({
 		},
 	},
 })
+vim.o.background = "dark" -- or "light" for light mode
+vim.cmd([[colorscheme gruvbox]])
 
 -- Function to check if a file exists
 -- local function file_exists(file)
