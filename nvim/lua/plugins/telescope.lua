@@ -1,6 +1,7 @@
 -- Fuzzy Finder (files, lsp, etc)
 return {
 	"nvim-telescope/telescope.nvim",
+	enabled = true,
 	branch = "0.1.x",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
@@ -39,7 +40,7 @@ return {
 			},
 			pickers = {
 				find_files = {
-					file_ignore_patterns = { "node_modules", ".git", ".venv", "venv" },
+					file_ignore_patterns = { "node_modules", ".venv", "venv" },
 					hidden = true,
 				},
 				buffers = {
@@ -94,16 +95,43 @@ return {
 		vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 		vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]resume" })
 		vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
+
+		-- Search Telescope builtin
+		vim.keymap.set("n", "<leader>st", "<cmd>Telescope builtin<CR>", { desc = "Search telescope builtin" })
+
+		-- Search Telescope with dir:
+		vim.keymap.set("n", "<leader>sx", function()
+			builtin.find_files({ cwd = vim.fn.input("dir: ") })
+		end, { desc = "Search in dir: " })
+
 		-- Shortcut for searching your Neovim configuration files
 		vim.keymap.set("n", "<leader>sn", function()
 			builtin.find_files({ cwd = vim.fn.stdpath("config") })
 		end, { desc = "[S]earch [N]eovim files" })
+
+		-- Shortcut for searching your dev files
+		vim.keymap.set("n", "<leader>sa", function()
+			builtin.live_grep({ cwd = "/mnt/c/Users/UT11ND/dev/" })
+		end, { desc = "[S]earch dev files" })
+
+		-- Search in cwd
+		vim.keymap.set("n", "<leader>scf", function()
+			builtin.find_files({ cwd = vim.fn.expand("%:p:h") })
+		end, { desc = "[S]earch [F]iles cwd" })
+
+		-- Grep in cwd
+		vim.keymap.set("n", "<leader>scg", function()
+			builtin.live_grep({ cwd = vim.fn.expand("%:p:h") })
+		end, { desc = "[G]rep cwd" })
+
 		vim.keymap.set("n", "<leader>sds", function()
 			builtin.lsp_document_symbols({
 				symbols = { "Class", "Function", "Method", "Constructor", "Interface", "Module", "Property" },
 			})
 		end, { desc = "[S]each LSP document [S]ymbols" })
+
 		vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
+
 		vim.keymap.set("n", "<leader>s/", function()
 			builtin.live_grep({
 				grep_open_files = true,
