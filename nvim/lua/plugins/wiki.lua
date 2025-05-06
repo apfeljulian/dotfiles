@@ -6,6 +6,12 @@ return {
 			-- wiki.vim configuration goes here, e.g.
 			vim.keymap.set("n", "<leader>wjn", "<cmd>WikiJournalNext<CR>", { desc = "" })
 			vim.keymap.set("n", "<leader>wjp", "<cmd>WikiJournalPrev<CR>", { desc = "" })
+			vim.keymap.set(
+				"n",
+				"<leader><Tab>",
+				"<cmd>WikiLinkNext<CR>",
+				{ noremap = true, silent = true, desc = "Wiki Link Next" }
+			)
 		end,
 	},
 }

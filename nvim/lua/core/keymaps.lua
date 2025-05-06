@@ -119,5 +119,3 @@ vim.keymap.set("n", "<leader>ss", ":mksession! .session.vim<CR>", { noremap = tr
 vim.keymap.set("n", "<leader>sl", ":source .session.vim<CR>", { noremap = true, silent = false })
 
 vim.keymap.set("n", "<leader>ll", "<cmd>Lazy<CR>", { noremap = true, silent = true, desc = "Lazy Plugin Manager" })
-
-vim.keymap.set("n", "<leader><Tab>", "<cmd>bnext<CR>", { noremap = true, silent = true, desc = "Next Buffer" })
